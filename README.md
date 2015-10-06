@@ -1,1 +1,1 @@
-Follow along of wdi
+Follow along with wdi
