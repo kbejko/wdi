@@ -9,11 +9,11 @@ var timer = {
     reset: document.getElementById("reset")
   },
 
-  startEnable: function startEnable(){
+  startEnable: function(){
     this.elements.start.disabled = false;
   },
 
-  updateTime: function updateTime(){
+  updateTime: function(){
     this.seconds++;
     this.elements.timer.textContent = "Time elapsed: " + this.seconds;
   },
@@ -23,13 +23,13 @@ var timer = {
       console.log("start");
       this.elements.timer.textContent = "Time elapsed: " + this.seconds;
       this.timerId = setInterval(this.updateTime.bind(this), 1000);
-      this.disabled = true;
+      this.elements.start.disabled = true;
     }.bind(this));
 
     this.elements.pause.addEventListener("click", function(){
       console.log("pause");
       clearInterval(this.timerId);
-      this.startEnable;
+      this.startEnable();
     }.bind(this));
 
     this.elements.reset.addEventListener("click", function(){
@@ -37,7 +37,7 @@ var timer = {
       this.seconds = 0;
       clearInterval(this.timerId);
       this.elements.timer.textContent = "Stop Watch";
-      this.startEnable;
+      this.startEnable();
     }.bind(this));
   }
 }
