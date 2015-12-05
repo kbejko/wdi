@@ -1,9 +1,15 @@
+for (var x = 0; x < 2; x++) {
+  $(".controls").append("<div class=brush></div>");
+}
+
 $("#form").submit(function(event){
   event.preventDefault();
-  $(".brush").css("background", $("#color-field").val());
+  $(".brush").each(function() {
+    $(this).css("background", $("#color-field").val());
+  })
 })
 
-for (var i = 0; i < 8001; i++) {
+for (var i = 0; i < 8000; i++) {
   $("body").append("<div class=square></div>");
 }
 
