@@ -15,5 +15,100 @@
 */
 
 body {
+  background: url("../images/wood.jpg");
   margin: 0;
+}
+
+.form {
+  width: 690px;
+  background-color: #eabc6f;
+  margin: 50px auto;
+  padding: 10px;
+  font: 12px/1.4 'Montserrat', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.sub-form {
+  padding: 10px;
+  border: 2px solid black;
+}
+
+.banner {
+  text-align: center;
+}
+
+.form-column {
+  width: 310px;
+  border-right: 2px solid black;
+  padding-right: 20px;
+}
+
+.image-column {
+  width: 310px;
+  float: right;
+  padding-right: 10px;
+}
+
+.image-column img{
+  height: 282px;
+  width: 282px;
+  border: 20px solid #e1c49a;
+  -ms-transform: rotate(-1deg); /* IE 9 */
+    -webkit-transform: rotate(-1deg); /* Chrome, Safari, Opera */
+    transform: rotate(-1deg);
+}
+
+.form-row {
+  margin: 0 0 10px;
+}
+
+  .form-row .entry {
+    border-bottom: 1px solid black;
+    display: block;
+  }
+
+  .form-row .category {
+    border-bottom: 1px solid #eabc6f;
+    float: left;
+    position: relative;
+    top: 1px;
+  }
+
+.checklist {
+  border: 1px solid #000;
+  list-style: none;
+  margin: 5px 0 10px;
+  padding: 0;
+}
+
+  .checklist li {
+    display: inline-block;
+    line-height: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 5px;
+    vertical-align: middle;
+  }
+
+  .checklist input {
+    appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: 1px solid #000;
+    display: block;
+    float: left;
+    font: 18px/1 courier, monospaced;
+    height: 20px;
+    margin: 0;
+    margin-right: 6px;
+    padding: 0;
+    width: 20px;
+  }
+
+  .checklist input:checked:before {
+    content: 'x';
+  }
+
+.signature {
+  font: 18px/1 'Crafty Girls', script;
+  color: #365c69;
 }
