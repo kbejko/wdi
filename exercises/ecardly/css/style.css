@@ -1,79 +1,90 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Serif+Pro);
 
 body {
-  background: url("../images/background.jpg");
-  background-repeat: repeat-x;
-  background-color: #d6d6d6;
-  color: #000;
-  line-height: 1.4em;
   font-family: 'Source Serif Pro', serif;
+  line-height: 1.4em;
+
+  color: #000;
+  background: url('../images/background.jpg');
+  background-color: #d6d6d6;
+  background-repeat: repeat-x;
 }
 
 a {
-  color: #cc6633;
   text-decoration: none;
+
+  color: #c63;
 }
 
 .container {
-  margin: auto;
   max-width: 740px;
+  margin: auto;
 }
 
-  .logo {
-    margin: 15px 0 30px;
-  }
-    .logo img {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
+.logo {
+  margin: 15px 0 30px;
+}
+.logo img {
+  display: block;
 
-  .col-one {
-    width: 60%;
-    float: left;
-    padding: 10px;
-    background-color: snow;
-  }
+  margin-right: auto;
+  margin-left: auto;
+}
 
-    .col-one img {
-      width: 100%;
-    }
+.col-one {
+  float: left;
 
-  h1  {
-    font-size: 24px;
-    padding: 10px 0;
-  }
+  width: 60%;
+  padding: 10px;
 
-  .byline {
-    margin: 10px 0 30px;
-    border-top: 2px solid SlateGrey;
-    border-bottom: 2px solid Black;
-    padding: 5px;
-  }
+  background-color: snow;
+}
 
-  .col-two {
-    width: 30%;
-    float: right;
-    background-color: snow;
-    padding: 10px;
-  }
+.col-one img {
+  width: 100%;
+}
 
-    .col-two img {
-      max-width: 100%;
-      padding: 10px 0 10px;
-    }
+h1 {
+  font-size: 24px;
 
-    .col-two .archive {
-      padding-bottom: 20px;
-    }
+  padding: 10px 0;
+}
 
-  footer {
-    float: left;
-    margin: 40px 0;
-    text-align: center;
-    width: 100%;
-  }
+.byline {
+  margin: 10px 0 30px;
+  padding: 5px;
 
-    .social img{
-      display: inline-block;
-    }
+  border-top: 2px solid SlateGrey;
+  border-bottom: 2px solid Black;
+}
+
+.col-two {
+  float: right;
+
+  width: 30%;
+  padding: 10px;
+
+  background-color: snow;
+}
+
+.col-two img {
+  max-width: 100%;
+  padding: 10px 0 10px;
+}
+
+.col-two .archive {
+  padding-bottom: 20px;
+}
+
+footer {
+  float: left;
+
+  width: 100%;
+  margin: 40px 0;
+
+  text-align: center;
+}
+
+.social img {
+  display: inline-block;
+}
