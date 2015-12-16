@@ -1,4 +1,5 @@
 # Use these two arrays to generate a deck of cards.
+require "pry"
 def card_deck
   cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A" ]
   suits = [ "hearts", "spades", "clubs", "diamonds" ]
@@ -13,11 +14,12 @@ def card_deck
       })
     end
   end
-
+binding.pry
   return deck.shuffle
 end
 
 deck = card_deck
+binding.pry
 players = []
 
 while true
