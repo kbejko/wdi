@@ -4,6 +4,7 @@ require "active_record"
 require "pry"
 
 require_relative "db/connection"
-require_relative "modles/artist"
+require_relative "models/artist"
+require_relative "models/song"
 
 binding.pry
