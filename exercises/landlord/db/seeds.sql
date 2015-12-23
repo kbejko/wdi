@@ -1,82 +1,50 @@
-TRUNCATE TABLE apartments CASCADE;
-TRUNCATE TABLE tenants CASCADE;
+require 'active_record'
+require 'pry'
 
-ALTER SEQUENCE apartments_id_seq RESTART WITH 1;
-ALTER SEQUENCE tenants_id_seq RESTART WITH 1;
+require_relative '../models/apartment'
+require_relative '../models/tenant'
+require_relative '../config/connection.rb'
 
+Apartment.destroy_all
+Tenant.destroy_all
+# create at least 3 objects of the apartment class
+Apartment.create([
+  {address: "1234 1st St", monthly_rent: 800,  sqft: 1100, num_beds: 1, num_baths: 1},
+  {address: "2341 2nd St", monthly_rent: 900,  sqft: 1200, num_beds: 2, num_baths: 2},
+  {address: "3412 3rd St", monthly_rent: 1000,  sqft: 1300, num_beds: 3, num_baths: 3}
+  ])
+# create at least 9 objects(at least 5 must be long to an apartment)
+Apartment.all[0].tenants.create([
+  {name: "sam", age: 24, gender: "f"},
+  {name: "tom", age: 26, gender: "m"},
+  {name: "jerry", age: 32, gender: "m"}
+  ])
+Apartment.all[1].tenants.create([
+  {name: "megan", age: 52, gender: "f"},
+  {name: "mary", age: 44, gender: "f"},
+  {name: "shamus", age: 28, gender: "m"}
+  ])
+Apartment.all[2].tenants.create([
+  {name: "eltahir", age: 32, gender: "m"},
+  {name: "lindsay", age: 24, gender: "f"},
+  {name: "haleigh", age: 37, gender: "f"}
+  ])
 
-INSERT INTO apartments (address, monthly_rent, sqft, num_beds, num_baths) VALUES ('70335 Clemenargaertine Tunnel', 800, 1900, 3, 2);
-INSERT INTO apartments (address, monthly_rent, sqft, num_beds, num_baths) VALUES ('44010 Lemke Crossroad', 1000, 1300, 1, 3);
-INSERT INTO apartments (address, monthly_rent, sqft, num_beds, num_baths) VALUES ('77841 Jany Lane', 700, 2300, 4, 3);
-INSERT INTO apartments (address, monthly_rent, sqft, num_beds, num_baths) VALUES ('4518 Ivy Spur', 2000, 1000, 1, 2);
-INSERT INTO apartments (address, monthly_rent, sqft, num_beds, num_baths) VALUES ('95287 Kamille Underpass', 2800, 1400, 1, 3);
-INSERT INTO apartments (address, monthly_rent, sqft, num_beds, num_baths) VALUES ('6005 Damien Corners', 400, 2300, 4, 1);
-INSERT INTO apartments (address, monthly_rent, sqft, num_beds, num_baths) VALUES ('95599 Koch Stream', 2400, 1900, 2, 4);
-INSERT INTO apartments (address, monthly_rent, sqft, num_beds, num_baths) VALUES ('40583 Hal Crossing', 200, 800, 3, 2);
-INSERT INTO apartments (address, monthly_rent, sqft, num_beds, num_baths) VALUES ('62897 Verna Walk', 2400, 700, 2, 3);
-INSERT INTO apartments (address, monthly_rent, sqft, num_beds, num_baths) VALUES ('351 Dibbert Fields', 2300, 1300, 2, 1);
-INSERT INTO apartments (address, monthly_rent, sqft, num_beds, num_baths) VALUES ('3710 Buford Passage', 500, 700, 1, 4);
-INSERT INTO apartments (address, monthly_rent, sqft, num_beds, num_baths) VALUES ('64329 Tyree Creek', 500, 2000, 1, 3);
-INSERT INTO apartments (address, monthly_rent, sqft, num_beds, num_baths) VALUES ('17297 Runte Bypass', 2300, 1700, 3, 2);
-INSERT INTO apartments (address, monthly_rent, sqft, num_beds, num_baths) VALUES ('0889 Marvin Radial', 1100, 500, 3, 2);
-INSERT INTO apartments (address, monthly_rent, sqft, num_beds, num_baths) VALUES ('2745 Freddy Vista', 2800, 1400, 4, 4);
-INSERT INTO apartments (address, monthly_rent, sqft, num_beds, num_baths) VALUES ('359 Gutmann Pike', 2700, 1900, 2, 1);
-INSERT INTO apartments (address, monthly_rent, sqft, num_beds, num_baths) VALUES ('08465 Howell Harbor', 300, 1300, 3, 1);
-INSERT INTO apartments (address, monthly_rent, sqft, num_beds, num_baths) VALUES ('8865 Borer Viaduct', 600, 600, 1, 4);
-INSERT INTO apartments (address, monthly_rent, sqft, num_beds, num_baths) VALUES ('7357 Emard Row', 2600, 2300, 3, 2);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Maudie Mosciski', 90, 'Female', 1);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Kristin Wisoky', 23, 'Female', 1);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Demario King', 71, 'Female', 2);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Kaitlin Cormier', 91, 'Male', 3);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Rosalinda Champlin', 39, 'Male', 3);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Valentin Keebler Sr.', 74, 'Male', 5);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Ms. Garland Beatty', 60, 'Female', 6);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Eryn Lynch', 12, 'Male', 6);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Tiara Conn', 3, 'Male', 7);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Tillman Schroeder', 27, 'Male', 7);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Amber Jewess', 57, 'Female', 7);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('America Pollich', 82, 'Female', 7);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Mylene Krajcik', 25, 'Male', 7);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Josh Gottlieb', 8, 'Female', 8);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Sherwood Stiedemann', 72, 'Female', 8);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Katarina Kunde', 6, 'Female', 8);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Mabelle Eichmann', 16, 'Male', 9);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Mason Blanda', 83, 'Female', 9);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Sonny Dibbert I', 30, 'Female', 9);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Gus Herman II', 65, 'Male', 9);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Delia Christiansen MD', 57, 'Female', 9);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Willow Ledner Jr.', 46, 'Male', 9);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Titus Harvey', 19, 'Male', 10);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Ms. Randal Konopelski', 7, 'Female', 10);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Caleb Maggio', 55, 'Male', 11);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Hilbert Effertz', 30, 'Male', 11);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Bartholome Herman', 93, 'Male', 11);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Merritt Durgan', 34, 'Female', 11);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Helmer Grimes', 80, 'Female', 14);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Derrick Farrell', 81, 'Male', 14);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Enola Sauer V', 31, 'Female', 14);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Jimmy Bartell', 22, 'Female', 14);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Christophe Boyle DVM', 55, 'Female', 15);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Miss Wanda Kris', 57, 'Female', 15);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Miss Maeve Goldner', 10, 'Male', 15);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Noemie Daniel', 15, 'Female', 15);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Shanna Jacobson', 38, 'Female', 15);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Javier Boehm', 82, 'Female', 15);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Aurelia Harvey', 35, 'Male', 16);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Dangelo Bogisich', 60, 'Female', 16);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Benton Abernathy', 55, 'Female', 16);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Marina Kemmer', 37, 'Female', 16);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Dasia Vandervort', 4, 'Female', 16);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Bo Medhurst', 6, 'Male', 17);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Elta Fay', 6, 'Female', 18);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Conner Dare', 92, 'Male', 18);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Dr. Lindsey Reichert', 18, 'Male', 18);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Carlee Nolan', 77, 'Female', 18);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Bernie Weimann', 11, 'Male', 18);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Jose Denesik', 26, 'Female', 18);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Guadalupe OHara', 9, 'Female', 20);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Sheridan Jacobson Sr.', 6, 'Female', 20);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Bennett Jakubowski', 69, 'Female', 20);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Annette Stamm', 76, 'Male', 20);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Dr. Raquel Carter', 61, 'Female', 20);
-INSERT INTO tenants (name, age, gender, apartment_id) VALUES ('Grover Rath', 9, 'Female', 20);
+# query for all objects of the Tenant class, store it in a variable
+all_tenants = Tenant.all
+
+# query for all instances of the Tenant class that belong to the first Apartment you created
+
+first_apt_tenants = Apartment.first.tenants
+# update any one of your objects you've created using attribute helper methods
+first_street_apt = Apartment.first
+first_street_apt.monthly_rent = 840
+
+# save that object you just updated to the database
+first_street_apt.save
+
+# update an object using the update method
+Tenant.last.update(age: 25)
+
+# delete an object
+Tenant.all[4].destroy
