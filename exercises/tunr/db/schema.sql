@@ -1,17 +1,17 @@
-DROP TABLE IF EXISTS artists;
-DROP TABLE IF EXISTS songs;
+DROP TABLE IF EXISTS artists CASCADE;
+DROP TABLE IF EXISTS songs CASCADE;
 
 CREATE TABLE artists (
   id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL,
-  photo_url TEXT NOT NULL,
-  nationality TEXT NOT NULL
+  name VARCHAR(255),
+  photo_url VARCHAR(512),
+  nationality VARCHAR(255)
 );
 
 CREATE TABLE songs (
   id SERIAL PRIMARY KEY,
-  title TEXT NOT NULL,
-  album TEXT NOT NULL,
-  preview_url TEXT NOT NULL,
-  artist_id INT
+  title VARCHAR(255),
+  album VARCHAR(255),
+  preview_url VARCHAR(512),
+  artist_id INTEGER REFERENCES artists(id)
 );
