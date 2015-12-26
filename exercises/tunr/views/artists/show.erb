@@ -1,0 +1,8 @@
+<h1><%= @artist.name %> <a href="/artists/<%= @artist.id %>/edit">Edit</a></h1>
+<img src="<%= @artist.photo_url %>" alt="<%= @artist.name %> Picture" />
+<h3><%= @artist.nationality %></h3>
+
+<form class="" action="/artists/<%= @artist.id %> " method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input class="button-delete" type="submit" value="Delete">
+</form>

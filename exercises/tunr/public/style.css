@@ -1,0 +1,8 @@
+img {
+  width: 300px;
+  height: auto;
+}
+
+.button-delete {
+  background-color: tomato;
+}
