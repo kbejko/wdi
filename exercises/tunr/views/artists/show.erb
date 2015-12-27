@@ -2,6 +2,18 @@
 <img src="<%= @artist.photo_url %>" alt="<%= @artist.name %> Picture" />
 <h3><%= @artist.nationality %></h3>
 
+<h3>Songs</h3>
+<ul>
+  <% @artist.songs.each do |song| %>
+    <li>
+      <a href="/songs/<%= song.id %>">
+        <%= song.title %> (<%= song.album %>)
+      </a>
+    </li>
+
+  <% end %>
+</ul>
+
 <form class="" action="/artists/<%= @artist.id %> " method="post">
   <input type="hidden" name="_method" value="delete">
   <input class="button-delete" type="submit" value="Delete">
