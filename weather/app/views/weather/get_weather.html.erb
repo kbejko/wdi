@@ -1,0 +1,9 @@
+<form class="" action="/" method="get">
+  <label>City:</label>
+  <input type="text" name="city">
+  <label>State:</label>
+  <input type="text" name="state">
+  <input type="submit">
+</form>
+
+<p>Temperature in <%= "#{@forecast.city}, #{@forecast.state}" %> is <%= @forecast.temp_f %> F and <%= @forecast.weather %></p>
