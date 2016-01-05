@@ -1,6 +1,8 @@
 var express = require("express")
 var app = express()
 var hbs = require("hbs")
+var bottles = require("./controllers/bottles.js")
+
 app.set("view engine", "hbs")
 app.use(express.static(__dirname + "/public"))
 app.listen(4000)
@@ -19,8 +21,4 @@ app.get("/", function(req, res){
 //   }
 // })
 
-app.get("/:numberOfBottles?", function(req, res){
-  var numberOfBottles = req.params.numberOfBottles || 99
-  var next = numberOfBottles - 1
-  res.render("index", {bottles: numberOfBottles, next: next})
-})
+app.get("/:numberOfBottles?", bottles.index)
