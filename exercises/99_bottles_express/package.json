@@ -1,0 +1,16 @@
+{
+  "name": "99_bottles_express",
+  "version": "1.0.0",
+  "description": "Build an express application that enables users to count down the number of bottles of beer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "hbs": "^4.0.0"
+  }
+}
