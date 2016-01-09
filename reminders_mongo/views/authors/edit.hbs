@@ -1,0 +1,10 @@
+<h2>Edit {{author.name}}</h2>
+<form class="" action="/authors/{{author._id}}?_method=put" method="post">
+  <label>Name:</label>
+  <input type="text" name="name" value="{{author.name}}">
+  <input type="submit">
+</form>
+
+<form method="post" action="/authors/{{../author._id}}?_method=delete">
+  <input type="submit" value="Delete Author">
+</form>

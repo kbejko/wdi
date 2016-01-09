@@ -1,8 +1,11 @@
-<h1>Reminders for {{authors.name}}</h1>
+<h1>Reminders for {{author.name}}</h1>
 <div>
-  {{#each authors.reminders}}
+  {{#each author.reminders}}
     <div class="reminders-show-each">
       <p>{{body}}</p>
+      <form method="post" action="/authors/{{../author._id}}/reminders/{{_id}}?_method=delete">
+        <input type="submit" value="Done">
+      </form>
     </div>
   {{/each}}
 </div>
@@ -10,8 +13,8 @@
 <div class="reminder-new">
   <h3>New Reminder</h3>
   <form class="" action="/authors/{{author._id}}/reminders" method="post">
-    <label>Body</label>
-    <input type="text" name="body" value="">
+    <label>Reminder</label>
+    <input type="text" name="reminder" value="">
     <input type="submit">
   </form>
 </div>
