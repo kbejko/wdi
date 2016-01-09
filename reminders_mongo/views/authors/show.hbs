@@ -1,0 +1,22 @@
+<h1>Reminders for {{authors.name}}</h1>
+<div>
+  {{#each authors.reminders}}
+    <div class="reminders-show-each">
+      <p>{{body}}</p>
+    </div>
+  {{/each}}
+</div>
+
+<div class="reminder-new">
+  <h3>New Reminder</h3>
+  <form class="" action="/authors/{{author._id}}/reminders" method="post">
+    <label>Body</label>
+    <input type="text" name="body" value="">
+    <input type="submit">
+  </form>
+</div>
+
+<div class="author-edit">
+  <a href="/authors/{{author._id}}/edit">Edit Author</a>
+  <a href="/authors">Back</a>
+</div>

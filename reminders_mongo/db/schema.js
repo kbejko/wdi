@@ -2,7 +2,7 @@
 var mongoose = require('mongoose')
 
 // Instantiate a name space for our Schema constructor defined by mongoose
-var Schema = mongoose.schema,
+var Schema = mongoose.Schema,
   ObjectId = Schema.ObjectId
 
 // Defining Schema for reminders
@@ -11,11 +11,11 @@ var ReminderSchema = new Schema({
 })
 
 // Defining Schema for authors
-var AuthorSchema = new Schmea({
+var AuthorSchema = new Schema({
   name: String,
   reminders: [ReminderSchema]
 })
 
 // Setting models in mongoose utilizing schemas defined above
-var AuthorModel = mongoose.model("Author", AuthorSchema)
-var ReminderModel = mongoose.model("Reminder", ReminderSchema)
+mongoose.model('Author', AuthorSchema)
+mongoose.model('Reminder', ReminderSchema)
