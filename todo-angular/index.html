@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='todo'>
+<head>
+ <meta charset="UTF-8">
+ <title>Angular Lesson</title>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+ <script src="app/app.js"></script>
+ <script src="app/todos/todos.controller.js"></script>
+</head>
+<body>
+  <div class="" ng-controller="todosController as todosViewModel">
+    <div class="" ng-repeat="todo in todosViewModel.todos">
+      <p ng-show="!editTodo">{{$index}}{{todo}}</p>
+      <button class='edit' ng-click="todosViewModel.edit($index); editTodo = !editTodo">Edit Todo</button>
+      <form ng-show="editTodo">
+        <input type="text" name="content" ng-model="todosViewModel.content">
+        <button class="new" ng-click="todosViewModel.update($index; editTodo = !editTodo)">Save</button>
+        <button class="cancel" ng-click="editTodo = !editTodo">Cancel</button>
+      </form>
+    </div>
+    <div class="" ng-click="todosViewModel.toggleForm()">
+      New Todo
+    </div>
+    <form ng-show="todosViewModel.formIsVisible" ng-submit="todosViewModel.create()">
+      <label>Content</label>
+      <input type="text" name="content" ng-model="todosViewModel.content">
+    </form>
+  </div>
+</body>
+</html>
