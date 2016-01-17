@@ -1,0 +1,33 @@
+@media (max-width: 960px) {
+  .column-4 {
+    width: 83.33%;
+  }
+  .column-6 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  .header > .column-2,
+  .column-4,
+  .column-6 {
+    width: 100%
+  }
+  .
+}
+
+@media (max-width: 320px) {
+  .column-2,
+  .column-4,
+  .column-6,
+  .column-8 {
+    width: 100%
+  }
+  .header ul {
+    padding: .2em;;
+  }
+  .header li {
+    display: block;
+    text-align: center;
+  }
+}
